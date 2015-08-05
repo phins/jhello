@@ -14,7 +14,8 @@ RUN apt-get -y install tomcat7
 RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/default/tomcat7
 EXPOSE 8080
 # Download Slashdot homepage
-RUN mkdir /var/lib/tomcat7/webapps/jhello
-RUN $ wget -O /var/lib/tomcat7/webapps/jhello/simp.war https://github.com/phins/jhello/blob/master/simp.war
+RUN mkdir /etc/tomcat7/Catalina/webapps/jhello
+RUN cd /etc/tomcat7/Catalina/webapps/jhello
+RUN $ wget -O /etc/tomcat7/Catalina/webapps/jhello/simp.war https://github.com/phins/jhello/blob/master/simp.war
 # Start Tomcat, after starting Tomcat the container will stop. So use a 'trick' to keep it running.
 CMD service tomcat7 start && tail -f /var/lib/tomcat7/logs/catalina.out
