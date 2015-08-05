@@ -16,5 +16,6 @@ EXPOSE 8080
 # Download Slashdot homepage
 RUN mkdir /var/lib/tomcat7/webapps/jhello
 RUN $ wget https://github.com/phins/jhello/blob/master/simp.war -P /var/lib/tomcat7/webapps/jhello
+RUN $ wget -O /var/lib/tomcat7/webapps/jhello/simp.war https://github.com/phins/jhello/blob/master/simp.war
 # Start Tomcat, after starting Tomcat the container will stop. So use a 'trick' to keep it running.
 CMD service tomcat7 start && tail -f /var/lib/tomcat7/logs/catalina.out
